@@ -18,8 +18,6 @@
 
 - Vue
 - Python/Flask
-- Node
-- Express
 
 ---
 
