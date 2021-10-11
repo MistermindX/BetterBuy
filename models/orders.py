@@ -23,7 +23,12 @@ class Order(db.Model):
         self.store_location_id = store_location_id
 
     def json(self):
-        return {"id": self.id, "user_id": self.user_id, "store_location_id": self.store_location_id, "created_at": str(self.created_at), "updated_at": str(self.updated_at)}
+        return {
+            "id": self.id,
+            "user_id": self.user_id,
+            "store_location_id": self.store_location_id,
+            "created_at": str(self.created_at),
+            "updated_at": str(self.updated_at)}
 
     @classmethod
     def find_all(cls):
