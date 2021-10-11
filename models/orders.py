@@ -6,7 +6,7 @@ from models.db import db
 class Order(db.Model):
     __tablename__ = 'orders'
     id = db.Column(db.Integer, primary_key=True)
-    user_id = db.Column(db.Integer, db.ForeignKey('users.id', nullable=False))
+    user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
     store_location_id = db.Column(db.Integer, db.ForeignKey(
         'store_locations.id'), nullable=False)
     created_at = db.Column(
@@ -17,6 +17,8 @@ class Order(db.Model):
     user = db.relationship("User", backref=db.backref('users', lazy=True))
     store_location = db.relationship(
         "StoreLocation", backref=db.backref('store_locations', lazy=True))
+    orderitems = db.relationship(
+        "OrderItem", backref=db.backref('order_items', cascade="all", lazy=True))
 
     def __init__(self, user_id, store_location_id):
         self.user_id = user_id
