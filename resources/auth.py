@@ -9,6 +9,7 @@ class Register(Resource):
         data = request.get_json()
         params = {
             "name": data['name'],
+            "address": data['address'],
             "email": data['email'],
             "password_digest": gen_password(data['password'])
         }
