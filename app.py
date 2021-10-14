@@ -28,6 +28,12 @@ api.add_resource(category.ItemsByCategory,
 
 api.add_resource(item.AllItems, '/items')
 api.add_resource(item.ItemDetail, '/items/id/<int:item_id>')
+
+api.add_resource(order.AllOrders, '/orders')
+api.add_resource(order.OrderDetail, '/orders/order/<int:order_id>')
+api.add_resource(order.OrderByUser, '/orders/user/<int:user_id>')
+api.add_resource(order.ItemsInOrder, '/orders/items/<int:order_id>')
+
 # Resource Paths Here
 
 if __name__ == '__main__':

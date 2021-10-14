@@ -7,8 +7,8 @@ from models.order import Order
 
 class AllOrders(Resource):
     def get(self):
-        orders = Order.query.options(joinedload('user', 'order_items')).all()
-        return [order.json() for order in orders]
+        orders = Order.find_all()
+        return [order for order in orders]
 
     def post(self):
         data = request.get_json()
@@ -19,8 +19,9 @@ class AllOrders(Resource):
 
 class OrderDetail(Resource):
     def get(self, order_id):
-        order = Order.query.options(joinedload(
-            'user', 'order_items')).filter_by(id=order_id).first()
+        order = Order.query.filter_by(id=order_id).first()
+        if not order:
+            return {"msg": "Order not found"}, 404
         return order.json()
 
     def put(self, order_id):
@@ -42,14 +43,14 @@ class OrderDetail(Resource):
 
 class OrderByUser(Resource):
     def get(self, user_id):
-        order = Order.query.options(joinedload(
-            'user', 'order_items')).filter_by(user_id=user_id).first()
-        return order.json()
+        orders = Order.query.options(joinedload(
+            'user')).filter_by(user_id=user_id)
+        return [order.json() for order in orders]
 
 
 class ItemsInOrder(Resource):
     def get(self, order_id):
         order = Order.query.options(joinedload(
-            'user', 'order_items')).filter_by(id=order_id).first()
-        items = [item.json() for item in order.order_items]
+            'orderitems')).filter_by(id=order_id).first()
+        items = [item.json() for item in order.orderitems]
         return {**order.json(), "items": items}
