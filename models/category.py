@@ -25,6 +25,11 @@ class Category(db.Model):
             "created_at": str(self.created_at),
             "updated_at": str(self.updated_at)}
 
+    def create(self):
+        db.session.add(self)
+        db.session.commit()
+        return self
+
     @classmethod
     def find_all(cls):
         allCategories = Category.query.all()

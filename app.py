@@ -4,7 +4,7 @@ from flask_cors import CORS
 from flask_migrate import Migrate
 from models.db import db
 from models import category, item, order_item, order, user
-from resources import auth, orders
+from resources import auth, category, item, order_item, order
 
 app = Flask(__name__)
 CORS(app)
@@ -20,6 +20,9 @@ migrate = Migrate(app, db)
 # Resource Paths Here
 api.add_resource(auth.Login, '/users/login')
 api.add_resource(auth.Register, '/users/register')
+
+api.add_resource(category.AllCategories, '/categories')
+api.add_resource(category.CategoryDetail, '/categories/<int:category_id>')
 # Resource Paths Here
 
 if __name__ == '__main__':
