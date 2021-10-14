@@ -16,7 +16,7 @@ class Item(db.Model):
     ), nullable=False, onupdate=datetime.utcnow)
 
     category = db.relationship(
-        "Category", backref=db.backref('categories', lazy=True))
+        "Category", backref=db.backref('categories', cascade="all", lazy=True))
     item = db.relationship(
         "OrderItem", backref=db.backref('this_order_items', lazy=True))
 

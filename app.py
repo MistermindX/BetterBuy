@@ -23,6 +23,11 @@ api.add_resource(auth.Register, '/users/register')
 
 api.add_resource(category.AllCategories, '/categories')
 api.add_resource(category.CategoryDetail, '/categories/<int:category_id>')
+api.add_resource(category.ItemsByCategory,
+                 '/categories/items/<int:category_id>')
+
+api.add_resource(item.AllItems, '/items')
+api.add_resource(item.ItemDetail, '/items/id/<int:item_id>')
 # Resource Paths Here
 
 if __name__ == '__main__':

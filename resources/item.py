@@ -8,7 +8,7 @@ from sqlalchemy.orm import joinedload
 class AllItems(Resource):
     def get(self):
         items = Item.find_all()
-        return [item.json() for item in items]
+        return [item for item in items]
 
     def post(self):
         data = request.get_json()
@@ -19,7 +19,7 @@ class AllItems(Resource):
 
 class ItemDetail(Resource):
     def get(self, item_id):
-        item = Item.filter_by(id=item_id).first()
+        item = Item.query.filter_by(id=item_id).first()
         return item.json()
 
     def put(self, item_id):
@@ -37,10 +37,3 @@ class ItemDetail(Resource):
         db.session.delete(item)
         db.session.commit()
         return {"msg": "Item Deleted", "payload": item_id}
-
-
-class ItemsByCategory(Resource):
-    def get(self, category_id):
-        items = Item.query.options(joinedload(
-            'categories')).filter_by(category_id=category_id)
-        return [item.json() for item in items]

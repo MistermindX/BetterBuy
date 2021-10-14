@@ -2,6 +2,7 @@ from flask import request
 from flask_restful import Resource
 from models.db import db
 from models.category import Category
+from sqlalchemy.orm import joinedload
 
 
 class AllCategories(Resource):
@@ -40,3 +41,11 @@ class CategoryDetail(Resource):
         db.session.delete(category)
         db.session.commit()
         return {"msg": "Category Deleted", "payload": category_id}
+
+
+class ItemsByCategory(Resource):
+    def get(self, category_id):
+        category = Category.query.options(joinedload(
+            'categories')).filter_by(id=category_id).first()
+        items = [item.json() for item in category.item]
+        return {**category.json(), "items": items}
