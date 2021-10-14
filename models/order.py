@@ -16,7 +16,7 @@ class Order(db.Model):
     orderitems = db.relationship(
         "OrderItem", backref=db.backref('order_items', cascade="all", lazy=True))
 
-    def __init__(self, user_id, store_location_id):
+    def __init__(self, user_id):
         self.user_id = user_id
 
     def json(self):
