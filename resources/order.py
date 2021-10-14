@@ -37,7 +37,7 @@ class OrderDetail(Resource):
             return {"msg": "Post not found"}, 404
         db.session.delete(order)
         db.session.commit()
-        return {"msg": "Post Deleted", "payload": order_id}
+        return {"msg": "Order Deleted", "payload": order_id}
 
 
 class OrderByUser(Resource):
