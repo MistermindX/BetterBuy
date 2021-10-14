@@ -34,6 +34,11 @@ api.add_resource(order.OrderDetail, '/orders/order/<int:order_id>')
 api.add_resource(order.OrderByUser, '/orders/user/<int:user_id>')
 api.add_resource(order.ItemsInOrder, '/orders/items/<int:order_id>')
 
+api.add_resource(order_item.AllOrderItems, '/order_items')
+api.add_resource(order_item.OrderItemDetail,
+                 '/order_items/orderitems/<int:order_item_id>')
+api.add_resource(order_item.OrderItemItem,
+                 '/order_items/item/<int:order_item_id>')
 # Resource Paths Here
 
 if __name__ == '__main__':

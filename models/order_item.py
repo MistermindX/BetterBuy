@@ -16,11 +16,11 @@ class OrderItem(db.Model):
     ), nullable=False, onupdate=datetime.utcnow)
 
     item = db.relationship("Item", backref=db.backref('items', lazy=True))
-    order = db.relationship("Order", backref=db.backref('orders', lazy=True))
+    order = db.relationship("Order", backref=db.backref(
+        'orders', cascade="all", lazy=True))
 
-    def __init__(self, item_id, color_choice_id, order_id, quantity):
+    def __init__(self, item_id, order_id, quantity):
         self.item_id = item_id
-        self.color_choice_id = color_choice_id
         self.order_id = order_id
         self.quantity = quantity
 
@@ -28,7 +28,6 @@ class OrderItem(db.Model):
         return {
             "id": self.id,
             "item_id": self.item_id,
-            "color_choice_id": self.color_choice_id,
             "order_id": self.order_id,
             "quantity": self.quantity,
             "created_at": str(self.created_at),

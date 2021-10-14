@@ -8,7 +8,7 @@ from sqlalchemy.orm import joinedload
 class AllOrderItems(Resource):
     def get(self):
         orderItems = OrderItem.find_all()
-        return [orderItem.json() for orderItem in orderItems]
+        return [orderItem for orderItem in orderItems]
 
     def post(self):
         data = request.get_json()
@@ -17,9 +17,9 @@ class AllOrderItems(Resource):
         return orderItem.json(), 201
 
 
-class ItemDetail(Resource):
+class OrderItemDetail(Resource):
     def get(self, order_item_id):
-        orderItem = OrderItem.filter_by(id=order_item_id).first()
+        orderItem = OrderItem.query.filter_by(id=order_item_id).first()
         return orderItem.json()
 
     def put(self, order_item_id):
@@ -42,5 +42,5 @@ class ItemDetail(Resource):
 class OrderItemItem(Resource):
     def get(self, order_item_id):
         orderItem = OrderItem.query.options(joinedload(
-            'items')).filter_by(order_item_id=order_item_id).first()
-        return orderItem.items.json()
+            'item')).filter_by(id=order_item_id).first()
+        return orderItem.item.json()
