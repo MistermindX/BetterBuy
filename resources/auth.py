@@ -20,7 +20,17 @@ class Register(Resource):
 
 class Login(Resource):
     def post(self):
-        pass
+        data = request.get_json()
+        user = User.find_by_email(data["email"])
+        if user and compare_password(data["password"], user.password_digest):
+            payload = {"id": user.id, "email": user.email}
+            token = create_token(payload)
+            return {"user": payload, "token": token}
+        return {"msg": "Unauthorized"}, 404
 
     def get(self):
-        pass
+        token = strip_token(request)
+        payload = read_token(token)
+        if payload:
+            return payload, 200
+        return {"msg": "unauthorized"}, 404

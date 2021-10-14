@@ -13,7 +13,7 @@ class Category(db.Model):
     ), nullable=False, onupdate=datetime.utcnow)
 
     item = db.relationship("Item", backref=db.backref(
-        'items', cascade="all", lazy=True))
+        'items_category', cascade="all", lazy=True))
 
     def __init__(self, name):
         self.name = name

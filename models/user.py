@@ -16,7 +16,7 @@ class User(db.Model):
     ), nullable=False, onupdate=datetime.utcnow)
 
     orders = db.relationship("Order", cascade="all",
-                             backref=db.backref('orders', lazy=True))
+                             backref=db.backref('my_orders', lazy=True))
 
     def __init__(self, name, address, email, password_digest):
         self.name = name
@@ -47,6 +47,10 @@ class User(db.Model):
     @classmethod
     def find_by_id(cls, user_id):
         return User.query.filter_by(id=user_id).first()
+
+    @classmethod
+    def find_by_email(cls, email):
+        return User.query.filter_by(email=email).first()
 
     @classmethod
     def delete(cls, self):

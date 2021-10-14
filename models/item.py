@@ -8,7 +8,7 @@ class Item(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String, nullable=False)
     category_id = db.Column(db.Integer, db.ForeignKey(
-        'category.id'), nullable=False)
+        'categories.id'), nullable=False)
     description = db.Column(db.String, nullable=False)
     created_at = db.Column(
         db.DateTime, default=datetime.utcnow, nullable=False)
@@ -17,6 +17,8 @@ class Item(db.Model):
 
     category = db.relationship(
         "Category", backref=db.backref('categories', lazy=True))
+    item = db.relationship(
+        "OrderItem", backref=db.backref('this_order_items', lazy=True))
 
     def __init__(self, name, category_id, description):
         self.name = name
