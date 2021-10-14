@@ -7,8 +7,6 @@ class OrderItem(db.Model):
     __tablename__ = 'order_items'
     id = db.Column(db.Integer, primary_key=True)
     item_id = db.Column(db.Integer, db.ForeignKey('items.id'), nullable=False)
-    color_choice_id = db.Column(db.Integer, db.ForeignKey(
-        'color_choice.id'), nullable=False)
     order_id = db.Column(db.Integer, db.ForeignKey(
         'orders.id'), nullable=False)
     quantity = db.Column(db.Integer, nullable=False)
@@ -18,8 +16,6 @@ class OrderItem(db.Model):
     ), nullable=False, onupdate=datetime.utcnow)
 
     item = db.relationship("Item", backref=db.backref('items', lazy=True))
-    color_choice = db.relationship(
-        "ColorChoice", backref=db.backref('color_choices', lazy=True))
     order = db.relationship("Order", backref=db.backref('orders', lazy=True))
 
     def __init__(self, item_id, color_choice_id, order_id, quantity):
