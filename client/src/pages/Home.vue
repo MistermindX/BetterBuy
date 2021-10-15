@@ -28,6 +28,7 @@ export default {
     async getCategories() {
       const res = await axios.get(`${BASE_URL}/categories`)
       this.categories = res.data
+      console.log(localStorage.getItem('token'))
     },
     navigateCategory(id) {
       this.$router.push(`/categories/${id}`)
