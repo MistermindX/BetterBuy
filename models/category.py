@@ -7,6 +7,7 @@ class Category(db.Model):
     __tablename__ = 'categories'
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String, nullable=False)
+    image = db.Column(db.String, nullable=False)
     created_at = db.Column(
         db.DateTime, default=datetime.utcnow, nullable=False)
     updated_at = db.Column(db.DateTime, default=datetime.utcnow(
@@ -15,13 +16,15 @@ class Category(db.Model):
     item = db.relationship("Item", backref=db.backref(
         'items_category', lazy=True))
 
-    def __init__(self, name):
+    def __init__(self, name, image):
         self.name = name
+        self.image = image
 
     def json(self):
         return {
             "id": self.id,
             "name": self.name,
+            "image": self.image,
             "created_at": str(self.created_at),
             "updated_at": str(self.updated_at)}
 
