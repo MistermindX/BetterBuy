@@ -3,7 +3,7 @@
     <Nav />
     <main>
       <!-- Routes Go Here -->
-      <router-view header="Listings In Miami"></router-view>
+      <router-view></router-view>
     </main>
   </div>
 </template>
