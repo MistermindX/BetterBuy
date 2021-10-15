@@ -3,7 +3,6 @@
 </template>
 
 <script>
-import { categories } from './Home.vue'
 export default {
   name: 'CategorySearch',
   data: () => ({

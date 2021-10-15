@@ -14,21 +14,25 @@ class Item(db.Model):
         db.DateTime, default=datetime.utcnow, nullable=False)
     updated_at = db.Column(db.DateTime, default=datetime.utcnow(
     ), nullable=False, onupdate=datetime.utcnow)
+    image = db.Column(db.String, nullable=False)
+    price = db.Column(db.Float, nullable=False)
 
     category = db.relationship(
         "Category", backref=db.backref('categories', cascade="all", lazy=True))
     item = db.relationship(
         "OrderItem", backref=db.backref('this_order_items', lazy=True))
 
-    def __init__(self, name, category_id, description):
+    def __init__(self, name, category_id, description, image):
         self.name = name
         self.category_id = category_id
         self.description = description
+        self.image = image
 
     def json(self):
         return {
             "id": self.id,
             "name": self.name,
+            "image": self.image,
             "category_id": self.category_id,
             "description": self.description,
             "created_at": str(self.created_at),
