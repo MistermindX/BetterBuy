@@ -22,17 +22,19 @@ class Item(db.Model):
     item = db.relationship(
         "OrderItem", backref=db.backref('this_order_items', lazy=True))
 
-    def __init__(self, name, category_id, description, image):
+    def __init__(self, name, category_id, description, image, price):
         self.name = name
         self.category_id = category_id
         self.description = description
         self.image = image
+        self.price = price
 
     def json(self):
         return {
             "id": self.id,
             "name": self.name,
             "image": self.image,
+            "price": self.price,
             "category_id": self.category_id,
             "description": self.description,
             "created_at": str(self.created_at),

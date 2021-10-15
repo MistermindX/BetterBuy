@@ -5,6 +5,7 @@
     </div>
     <div class="info-wrapper flex-col">
       <h3>{{ name }}</h3>
+      <h5>{{ description }}</h5>
     </div>
   </div>
 </template>
@@ -12,7 +13,7 @@
 <script>
 export default {
   name: 'ItemCard',
-  props: ['name', 'image', 'id'],
+  props: ['name', 'image', 'id', 'description'],
   methods: {
     navigateItem(id) {
       this.$emit('navigateItem', id)

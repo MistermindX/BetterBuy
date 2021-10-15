@@ -6,6 +6,7 @@
       :name="item.name"
       :image="item.image"
       :id="item.id"
+      :description="item.description"
       @navigateItem="navigateItem"
     />
   </div>
@@ -29,10 +30,14 @@ export default {
       const res = await axios.get(
         `${BASE_URL}/categories/items/${this.$route.params.category_id}`
       )
-      this.items.items = res.data
+      console.log(res.data)
+      this.items = res.data.items
     },
     navigateCategory(id) {
       this.$router.push(`/categories/${id}`)
+    },
+    navigateItem(id) {
+      this.$router.push(`/items/${id}`)
     }
   }
 }
