@@ -6,7 +6,7 @@
       :name="category.name"
       :image="category.image"
       :id="category.id"
-      @navigateItem="navigateItem"
+      @navigateCategory="navigateCategory"
     />
   </div>
 </template>
@@ -19,10 +19,7 @@ export default {
   name: 'Home',
   components: { CategoryCard },
   data: () => ({
-    categories: [],
-    searchQuery: '',
-    searchResults: [],
-    searched: false
+    categories: []
   }),
   mounted() {
     this.getCategories()
@@ -32,7 +29,7 @@ export default {
       const res = await axios.get(`${BASE_URL}/categories`)
       this.categories = res.data
     },
-    navigateItem(id) {
+    navigateCategory(id) {
       this.$router.push(`/categories/${id}`)
     }
   }

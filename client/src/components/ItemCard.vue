@@ -1,5 +1,5 @@
 <template>
-  <div class="card" @click="navigateCategory(id)">
+  <div class="card" @click="navigateItem(id)">
     <div class="image-wrapper">
       <img :src="image" />
     </div>
@@ -11,11 +11,11 @@
 
 <script>
 export default {
-  name: 'CategoryCard',
+  name: 'ItemCard',
   props: ['name', 'image', 'id'],
   methods: {
-    navigateCategory(id) {
-      this.$emit('navigateCategory', id)
+    navigateItem(id) {
+      this.$emit('navigateItem', id)
     }
   }
 }
