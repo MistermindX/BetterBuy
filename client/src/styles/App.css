@@ -41,6 +41,7 @@ main {
 nav {
   background: #42b983;
   padding: 1em;
+  text-align: right;
 }
 
 nav a {

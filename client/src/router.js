@@ -3,6 +3,7 @@ import Home from './pages/Home'
 import CategorySearch from './pages/CategorySearch'
 import SignIn from './pages/SignIn'
 import ItemDetail from './pages/ItemDetail'
+import StoreList from './pages/StoreList'
 
 const routes = [
   { path: '/', component: Home, name: 'Home' },
@@ -12,7 +13,8 @@ const routes = [
     name: 'CategorySearch'
   },
   { path: '/signin', component: SignIn, name: 'SignIn' },
-  { path: '/items/:item_id', component: ItemDetail, name: 'ItemDetail' }
+  { path: '/items/:item_id', component: ItemDetail, name: 'ItemDetail' },
+  { path: '/storelist', component: StoreList, name: 'StoreList' }
 ]
 
 export default new VueRouter({ routes, mode: 'history' })
