@@ -1,8 +1,10 @@
 <template>
   <div class="item">
-    <p>{{ item.name }}</p>
-    <p>{{ item.description }}</p>
-    <img :src="item.image" />
+    <div class="item-words">
+      <h2>{{ item.name }}</h2>
+      <p class="description">{{ item.description }}</p>
+    </div>
+    <div><img :src="item.image" /></div>
   </div>
 </template>
 
