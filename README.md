@@ -27,7 +27,7 @@
 
 ##### A Trello board was used to keep track of development progress and can be viewed [here](https://trello.com/b/yI6rz9xg/better-buy).
 
-<!-- ##### The project itself was deployed and can be viewed [here](URL). -->
+##### The project itself was deployed and can be viewed [here](https://adoring-hopper-b86233.netlify.app/).
 
 ---
 
@@ -41,10 +41,10 @@
 
 ### **_Future Updates_**
 
-- [ ] Future Update 1
-- [ ] Future Update 2
-- [x] Completed Update
-- [x] ~~Strikethrough~~ Items Also
+- [ ] Order Functionality
+- [ ] User Functionality with Auth
+- [ ] Map locations with Mapbox
+- [ ] Install Auth0
 
 ---
 
