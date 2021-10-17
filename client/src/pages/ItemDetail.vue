@@ -5,8 +5,9 @@
       <div class="item-words">
         <h2>{{ item.name }}</h2>
         <p class="description">{{ item.description }}</p>
+        <h4>${{ item.price }}</h4>
       </div>
-      <div><img :src="item.image" /></div>
+      <div><img :src="item.image" :alt="item.name" /></div>
     </div>
   </div>
 </template>

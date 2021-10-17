@@ -1,7 +1,7 @@
 <template>
   <div class="card" @click="navigateCategory(id)">
     <div class="image-wrapper">
-      <img :src="image" />
+      <img :src="image" :alt="name" />
     </div>
     <div class="info-wrapper flex-col">
       <h3>{{ name }}</h3>

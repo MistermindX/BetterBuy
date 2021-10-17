@@ -6,6 +6,7 @@
       :name="item.name"
       :image="item.image"
       :id="item.id"
+      :price="item.price"
       :description="item.description"
       @navigateItem="navigateItem"
     />
