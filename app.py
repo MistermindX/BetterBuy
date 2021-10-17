@@ -3,8 +3,8 @@ from flask_restful import Api
 from flask_cors import CORS
 from flask_migrate import Migrate
 from models.db import db
-from models import category, item, order_item, order, user
-from resources import auth, category, item, order_item, order
+from models import category, item, order_item, order, user, store_locations
+from resources import auth, category, item, order_item, order, store_location
 import os
 
 app = Flask(__name__)
@@ -49,6 +49,9 @@ api.add_resource(order_item.OrderItemDetail,
                  '/order_items/orderitems/<int:order_item_id>')
 api.add_resource(order_item.OrderItemItem,
                  '/order_items/item/<int:order_item_id>')
+
+api.add_resource(store_location.AllStores, '/stores')
+api.add_resource(store_location.StoreDetail, '/stores/<int:store_id>')
 # Resource Paths Here
 
 if __name__ == '__main__':

@@ -39,4 +39,4 @@ class StoreDetail(Resource):
             return {"msg": "Store not found"}, 404
         db.session.delete(store)
         db.session.commit()
-        return {"msg": "Category Deleted", "payload": store_id}
+        return {"msg": "Store Deleted", "payload": store_id}
