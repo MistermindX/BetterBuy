@@ -30,11 +30,7 @@ export default {
       const res = await axios.get(
         `${BASE_URL}/categories/items/${this.$route.params.category_id}`
       )
-      console.log(res.data)
       this.items = res.data.items
-    },
-    navigateCategory(id) {
-      this.$router.push(`/categories/${id}`)
     },
     navigateItem(id) {
       this.$router.push(`/items/${id}`)
