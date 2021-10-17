@@ -5,7 +5,6 @@
     </div>
     <div class="info-wrapper flex-col">
       <h3>{{ name }}</h3>
-      <h5>{{ description }}</h5>
     </div>
   </div>
 </template>
