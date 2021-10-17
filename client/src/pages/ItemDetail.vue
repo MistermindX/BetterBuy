@@ -1,6 +1,6 @@
 <template>
   <div>
-    <button @click="goBack()">Back</button>
+    <button @click="goBackToItemList()">{{ category.name }}</button>
     <div class="item">
       <div class="item-words">
         <h2>{{ item.name }}</h2>
@@ -17,10 +17,11 @@ import { BASE_URL } from '../globals'
 export default {
   name: 'ItemDetail',
   data: () => ({
-    item: {}
+    item: {},
+    category: {}
   }),
-  mounted() {
-    this.getItemDetails()
+  async mounted() {
+    await this.getItemDetails(), this.getCategoryDetails()
   },
   methods: {
     async getItemDetails() {
@@ -29,7 +30,13 @@ export default {
       )
       this.item = res.data
     },
-    goBack() {
+    async getCategoryDetails() {
+      const res = await axios.get(
+        `${BASE_URL}/categories/${this.item.category_id}`
+      )
+      this.category = res.data
+    },
+    goBackToItemList() {
       this.$router.push(`/categories/${this.item.category_id}`)
     }
   }
