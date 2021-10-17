@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="item-page">
     <button @click="goBackToItemList()">{{ category.name }}</button>
     <div class="item">
       <div class="item-words">

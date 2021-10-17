@@ -74,3 +74,13 @@ nav a {
 .item-words {
   margin-right: 50px;
 }
+
+.item-page button {
+  width: auto;
+  margin: 0 10px 0 10px;
+  background-color: #384280;
+  border: 2px solid black;
+  border-radius: 5px;
+  color: #fff;
+  font-size: larger;
+}
