@@ -17,6 +17,17 @@ main {
   opacity: 0.8;
 }
 
+.store-card {
+  width: 80%;
+  border-radius: 4px;
+  background-color: #1b1b1b;
+  cursor: pointer;
+  transition: all 0.2s;
+  margin: 0 10% 10px 10%;
+  text-align: center;
+  padding: 2px;
+}
+
 .card .image-wrapper {
   width: auto;
 }
