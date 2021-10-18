@@ -41,6 +41,7 @@
 
 ### **_Future Updates_**
 
+- [ ] Adjust Image sizes so it looks better
 - [ ] Order Functionality
 - [ ] User Functionality with Auth
 - [ ] Map locations with Mapbox
