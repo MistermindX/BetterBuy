@@ -33,9 +33,17 @@
 
 ### **_Screenshots_**
 
-##### image header 1
+##### Homepage
 
-##### image header 2
+![homepage](screenshots/homepage.png)
+
+##### Category Search Page
+
+![categorysearchpage](screenshots/categorysearchpage.png)
+
+##### Item Details Page
+
+![itemdetailspage](screenshots/itemdetailspage.png)
 
 ---
 
