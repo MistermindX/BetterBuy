@@ -3,7 +3,7 @@
     <div class="image-wrapper">
       <img :src="image" :alt="name" />
     </div>
-    <div class="info-wrapper flex-col">
+    <div class="info-wrapper">
       <h3>{{ name }}</h3>
       <h5>${{ price }}</h5>
     </div>

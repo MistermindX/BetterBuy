@@ -7,7 +7,7 @@
         <p class="description">{{ item.description }}</p>
         <h4>${{ item.price }}</h4>
       </div>
-      <div><img :src="item.image" :alt="item.name" /></div>
+      <div><img :src="item.image" :alt="item.name" class="item-image" /></div>
     </div>
   </div>
 </template>

@@ -1,5 +1,5 @@
 <template>
-  <div class="flex-content">
+  <div class="content">
     <CategoryCard
       v-for="category in categories"
       :key="category.id"

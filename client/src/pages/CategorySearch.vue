@@ -1,5 +1,5 @@
 <template>
-  <div class="flex-content">
+  <div class="content">
     <ItemCard
       v-for="item in items"
       :key="item.id"
